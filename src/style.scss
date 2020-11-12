@@ -1,0 +1,160 @@
+$white: #fff;
+$border-box: #c5c5c5;
+$gradient-1: #f9f9f9;
+$gradient-2: #f1f1f1;
+$gradient-3: #00ff80;
+$gradient-4: #00e673;
+@mixin flex-item($flex) {
+  -webkit-box-flex: $flex;
+  -webkit-flex: $flex;
+  -ms-flex: $flex;
+  flex: $flex;
+}
+@mixin flex-box() {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+@mixin align-items() {
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+@mixin flex-flow() {
+  -webkit-flex-flow: row wrap;
+  -ms-flex-flow: row wrap;
+  flex-flow: row wrap;
+}
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+}
+html {
+  font: 2rem/normal Arial, sans-serif;
+  letter-spacing: normal;
+  line-height: 1;
+}
+body {
+  background-color: #414141;
+  margin: 0;
+  padding: 1rem;
+}
+html,
+body,
+.application,
+.flex-item-1,
+.flex-item-2,
+.flex-item-3,
+.application > div:first-child div,
+.application > div:nth-child(2) > div > div:nth-child(2) span[id] {
+  height: 100%;
+}
+.application {
+  background-color: $white;
+  box-shadow: 3px 3px 1px 0 #222, 0 0 1px 0 #222;
+  min-height: 400px;
+  min-width: 350px;
+  padding: 1.5rem .75rem;
+  > div:first-child {
+    height: 10%;
+  }
+  > div:nth-child(2) > div > div:nth-child(2),
+  > div:nth-child(2) > div:nth-child(2) span[id]:not(:last-of-type) {
+    height: 20%;
+  }
+  > div:nth-child(2) > div > div:first-child span[id] {
+    height: 25%;
+  }
+  > div:nth-child(2) > div:nth-child(2) span[id]:last-child {
+    height: 40%;
+  }
+  > div:nth-child(2) > div > div:first-child {
+    height: 80%;
+  }
+  > div:nth-child(2) {
+    height: 90%;
+    margin: .2rem 0 0;
+  }
+  > div:nth-child(2) > div > div:first-child > div:first-child span:first-child {
+    color: #0080ff;
+    font-weight: bolder;
+  }
+  > div:nth-child(2) > div > div:first-child > div:first-child span:first-child,
+  > div:nth-child(2) > div > div:first-child > div:nth-child(2) span:first-child,
+  > div:nth-child(2) > div > div:first-child > div:nth-child(3) span:first-child,
+  > div:nth-child(2) > div:last-of-type > span {
+    background-color: #f1f1f1;
+    background: -moz-linear-gradient(top, $gradient-1 0%, $gradient-2 100%);
+    background: -webkit-gradient(left top, left bottom, color-stop(0%, $gradient-1), color-stop(100%, $gradient-2));
+    background: -webkit-linear-gradient(top, $gradient-1 0%, $gradient-2 100%);
+    background: -o-linear-gradient(top, $gradient-1 0%, $gradient-2 100%);
+    background: -ms-linear-gradient(top, $gradient-1 0%, $gradient-2 100%);
+    background: linear-gradient(to bottom, $gradient-1 0%, $gradient-2 100%);
+  }
+  > div:nth-child(2) > div:last-of-type > span:last-of-type {
+    background-color: $gradient-3;
+    background: -moz-linear-gradient(top, $gradient-3 0%, $gradient-4 100%);
+    background: -webkit-gradient(left top, left bottom, color-stop(0%, $gradient-3), color-stop(100%, $gradient-4));
+    background: -webkit-linear-gradient(top, $gradient-3 0%, $gradient-4 100%);
+    background: -o-linear-gradient(top, $gradient-3 0%, $gradient-4 100%);
+    background: -ms-linear-gradient(top, $gradient-3 0%, $gradient-4 100%);
+    background: linear-gradient(to bottom, $gradient-3 0%, $gradient-4 100%);
+    box-shadow: inset -1px -1px 0 0 #00cc66, inset 1px 1px 0 0 #00cc66;
+  }
+  > div:nth-child(2) > div:last-of-type > span:last-of-type:hover {
+    box-shadow: inset -1px -1px 0 0 #00cc66, inset 1px 1px 0 0 #00cc66, inset 0 -3px 0 0 #00cc66;
+  }
+}
+.row {
+  overflow: hidden;
+}
+body,
+.row,
+span[id] {
+  width: 100%;
+}
+#numbers,
+span[id] {
+  @include flex-box();
+  @include align-items();
+}
+#numbers {
+  border: 1px solid $border-box;
+  height: 100%;
+  justify-content: flex-end;
+  margin: 0 .2rem;
+  padding: 0 .5rem 0 0;
+  width: 100%;
+  div {
+    display: inline-block;
+    height: auto;
+    width: auto;
+  }
+}
+span[id] {
+  background-color: $white;
+  border: .2rem solid $white;
+  box-shadow: inset -1px -1px 0 0 $border-box, inset 1px 1px 0 0 $border-box;
+  justify-content: center;
+}
+span[id]:hover {
+  box-shadow: inset -1px -1px 0 0 $border-box, inset 1px 1px 0 0 $border-box, inset 0 -3px 0 0 #e1e1e1;
+}
+.flex-container {
+  @include flex-box();
+  @include flex-flow();
+  @include align-items();
+}
+.flex-item-1 {
+  @include flex-item(1);
+}
+.flex-item-2 {
+  @include flex-item(2);
+}
+.flex-item-3 {
+  @include flex-item(3);
+}
