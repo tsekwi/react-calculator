@@ -1,28 +1,29 @@
-const Button = (props) => {
+const Button = ({ num, value, change, keys }) => {
     const handleChange = (e) => {
-        switch (props.num) {
+        switch (num) {
             case 'C':
-                props.change('');
+                change('');
                 break;
             case 'CE':
-                props.change(props.value.slice(0,-1));
+                change(value.slice(0,-1));
                 break;
             default:
-                props.change(props.value + e.target.value);
+                change(value + e.target.value);
                 break;
         }
     }
-    if (props.num !== '=') {
+    if (num !== '=') {
         return (
             <button 
             type="button" 
-            id={ props.num } 
-            value={ props.num } 
+            id={ num } 
+            value={ num } 
             onClick={ handleChange } 
-            className="button text-center" key={ props.keys }>{ props.num }</button>
+            className="button text-center" key={ keys }>{ num }</button>
         );
     } 
-    else return <button className="button text-center" type="submit" key="submit">=</button>;
+    else 
+    return <button className="button text-center" type="submit" key="submit">=</button>;
 }
 
 export default Button;

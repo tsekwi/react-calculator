@@ -3,6 +3,12 @@ import Button from './Button';
 import './foundation.min.css';
 import './style.scss';
 
+const calc = {
+  'inputs_1': ['(',')','C','CE'], 
+  'inputs_2': [7,8,9,4,5,6,1,2,3,0,'.','='], 
+  'inputs_3': ['/','*','-','+']
+}
+
 const App = () => {
   const [value, setValue] = useState('');
 
@@ -31,7 +37,7 @@ const App = () => {
         <div className="item1" key="item-1">
           <div className="grid-4">
             {
-              ['(',')','C','CE'].map(num => 
+              calc.inputs_1.map(num => 
                 <Button 
                 num={ num } 
                 value={ value } 
@@ -44,7 +50,7 @@ const App = () => {
         <div className="item2" key="item-2">
           <div className="grid-3">
             {
-              [7,8,9,4,5,6,1,2,3,0,'.','='].map(num => 
+              calc.inputs_2.map(num => 
                 <Button 
                 num={ num } 
                 value={ value } 
@@ -57,7 +63,7 @@ const App = () => {
         <div className="item3" key="item-3">
           <div className="grid-1">
             {
-              ['/','*','-','+'].map(num => 
+              calc.inputs_3.map(num => 
                 <Button 
                 num={ num } 
                 value={ value } 
