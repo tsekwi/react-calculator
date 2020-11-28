@@ -1,26 +1,24 @@
 import { useState } from "react";
 import calcSymbols from './calc-symbols';
+import parsePlusSeparatedExpression from './math-expression-parser';
 import Button from './Button';
 import './foundation.min.css';
 import './style.scss';
+
 
 const App = () => {
   const [value, setValue] = useState('');
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    setValue(prevValue => eval(prevValue));
-    setValue(prevValue => prevValue.toString());
-    // "(8--2)".split("").map(item => {
-    //   if (Number(item) == item) 
-    //     return Number(item);
-    //   else return item;
-    // });
-    // https://medium.com/@stoopidguy1992/how-to-write-a-math-expression-parser-in-javascript-b5147bc9466b
+    const result = parsePlusSeparatedExpression(value, '+');
+    setValue(String(result));
   }
+
   const updateState = (e) => {
     setValue(e.target.value);
   }
+  
   const handleChange = (newValue) => {
     setValue(newValue);
   }
