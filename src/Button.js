@@ -1,4 +1,6 @@
-const Button = ({ num, value, change, keys }) => {
+import styles from './Button.module.css';
+
+const Button = ({ num, value, change, classy, keys }) => {
     const handleChange = (e) => {
         switch (num) {
             case 'C':
@@ -19,11 +21,11 @@ const Button = ({ num, value, change, keys }) => {
             id={ num } 
             value={ num } 
             onClick={ handleChange } 
-            className="button text-center" key={ keys }>{ num }</button>
+            className={ styles.button + ` ${classy} text-center` } key={ keys }>{ num }</button>
         );
     } 
     else 
-    return <button className="button text-center" type="submit" key="submit">=</button>;
+    return <button className={ styles.button + ` text-center ` + styles.submit } type="submit" key="submit">=</button>;
 }
 
 export default Button;
