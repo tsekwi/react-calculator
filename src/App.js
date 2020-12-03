@@ -10,7 +10,7 @@ const App = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const result = parsePlusSeparatedExpression(value, '+');
+    const result = parsePlusSeparatedExpression(value.replace(/÷/g, '/'), '+');
     setValue(String(result));
   }
 
