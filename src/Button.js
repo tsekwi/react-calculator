@@ -21,11 +21,17 @@ const Button = ({ num, value, change, classy, keys }) => {
             id={ num } 
             value={ num } 
             onClick={ handleChange } 
-            className={ styles.button + ` ${classy} text-center` } key={ keys }>{ num }</button>
+            className={ styles.button + ` ${classy} text-center` } key={ keys }>
+                <span>{ num }</span>
+            </button>
         );
     } 
     else 
-    return <button className={ styles.button + ` text-center ` + styles.submit } type="submit" key="submit">=</button>;
+    return (
+        <button className={ styles.button + ` text-center ` + styles.submit } type="submit" key="submit">
+            <span>=</span>
+        </button>
+    );
 }
 
 export default Button;

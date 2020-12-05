@@ -10,7 +10,7 @@ const App = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const result = parsePlusSeparatedExpression(value.replace(/÷/g, '/'), '+');
+    const result = parsePlusSeparatedExpression(value.replace(/×/g, '*').replace(/÷/g, '/'), '+');
     setValue(String(result));
   }
 
@@ -29,14 +29,11 @@ const App = () => {
         <div>
             <div className="grid-4">
               {
-                calcSymbols.group_1.map(num => 
-                  <Button 
-                  num={ num } 
-                  value={ value } 
-                  change={ handleChange } 
-                  classy="group_1" 
-                  keys={ num } />
-                )
+                calcSymbols.map((num, idx) => {
+                  if (idx < 4) 
+                  return <Button num={ num } value={ value } change={ handleChange } classy="group_1" keys={ num } /> 
+                  else return ""
+                })
               }
             </div>
         </div>
@@ -44,28 +41,22 @@ const App = () => {
           <div>
             <div className="grid-3">
               {
-                calcSymbols.group_2.map(num => 
-                  <Button 
-                  num={ num } 
-                  value={ value } 
-                  change={ handleChange } 
-                  classy="group_2" 
-                  keys={ num } />
-                )
+                calcSymbols.map((num, idx) => {
+                  if (idx > 3 && idx < 16) 
+                  return <Button num={ num } value={ value } change={ handleChange } classy="group_2" keys={ num } /> 
+                  else return ""
+                })
               }
             </div>
           </div>
           <div>
             <div className="grid-1">
               {
-                calcSymbols.group_3.map(num => 
-                  <Button 
-                  num={ num } 
-                  value={ value } 
-                  change={ handleChange } 
-                  classy="group_3" 
-                  keys={ num } />
-                )
+                calcSymbols.map((num, idx) => {
+                  if (idx > 15 && idx < 20) 
+                  return <Button num={ num } value={ value } change={ handleChange } classy="group_3" keys={ num } /> 
+                  else return ""
+                })
               }
             </div>
           </div> 
