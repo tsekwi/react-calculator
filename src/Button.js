@@ -1,7 +1,7 @@
 import styles from './Button.module.css';
 
-const Button = ({ num, value, change, classy, keys }) => {
-    const handleChange = (e) => {
+const Button = ({ num, value, change, classy, idx }) => {
+    const handleChange = e => {
         switch (num) {
             case 'C':
                 change('');
@@ -10,6 +10,7 @@ const Button = ({ num, value, change, classy, keys }) => {
                 change(value.slice(0,-1));
                 break;
             default:
+                if (e.target.value !== undefined) 
                 change(value + e.target.value);
                 break;
         }
@@ -21,16 +22,12 @@ const Button = ({ num, value, change, classy, keys }) => {
             id={ num } 
             value={ num } 
             onClick={ handleChange } 
-            className={ styles.button + ` ${classy} text-center` } key={ keys }>
-                <span>{ num }</span>
-            </button>
+            className={ styles.button + ` ${classy} text-center` } key={ classy + idx }>{ num }</button>
         );
     } 
     else 
     return (
-        <button className={ styles.button + ` text-center ` + styles.submit } type="submit" key="submit">
-            <span>=</span>
-        </button>
+        <button className={ styles.button + ` text-center ` + styles.submit } type="submit" key={ 'group_' + idx }>=</button>
     );
 }
 

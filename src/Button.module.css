@@ -4,7 +4,6 @@
     font-size: 2rem;
     font-weight: 900;
     outline: 0;
-    /* vertical-align: middle; */
     margin: 0;
     padding: 0.85rem 1rem;
     border: .5px solid #ffffff;
@@ -13,7 +12,6 @@
     transition: background-color 0.25s ease-out, color 0.25s ease-out;
     -webkit-appearance: none;
     line-height: 1;
-    /* text-align: center; */
     position: relative;
     cursor: pointer;
 }

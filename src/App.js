@@ -7,23 +7,16 @@ import './style.scss';
 
 const App = () => {
   const [value, setValue] = useState('');
-
-  const handleSubmit = (e) => {
+  const handleSubmit = e => {
     e.preventDefault();
     const result = parsePlusSeparatedExpression(value.replace(/×/g, '*').replace(/÷/g, '/'), '+');
     setValue(String(result));
   }
-
-  const updateState = (e) => {
-    setValue(e.target.value);
-  }
-
-  const handleChange = (newValue) => {
-    setValue(newValue);
-  }
+  const updateState = e => setValue(e.target.value);
+  const handleChange = newValue => setValue(() => newValue);
 
   return (
-    <form onSubmit={ handleSubmit }>
+    <form onSubmit={ handleSubmit } key="parent_1">
       <input type="text" placeholder="Start Calculating..." value={ value } onChange={ updateState } />
       <div className="btn-container">
         <div>
@@ -38,7 +31,7 @@ const App = () => {
             </div>
         </div>
         <div className="grid-container">
-          <div>
+          <div key="child_3-2">
             <div className="grid-3">
               {
                 calcSymbols.map((num, idx) => {
