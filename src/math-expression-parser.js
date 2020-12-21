@@ -18,6 +18,9 @@ const split = (expression, operator) => {
   if (currentChunk !== "") {
       result.push(currentChunk);
   }
+
+  console.log(currentChunk, result);
+
   return result;
 };
   
@@ -49,10 +52,23 @@ const parseDivideSeparatedExpression = (expression) => {
   
 // * / -
 const parseMinusSeparatedExpression = (expression) => {
-  const numbersString = split(expression, '-');
-  const numbers = numbersString.map(noStr => parseDivideSeparatedExpression(noStr));
-  const initialValue = numbers[0];
-  const result = numbers.slice(1).reduce((acc, no) => acc - no, initialValue);
+  let numbersString = split(expression, '-');
+  /*
+  let nArray = [];
+  numbersString.forEach((arr, i) => {
+    if (arr === '-' && i === 0) 
+      nArray.push(arr + numbersString[i + 1])
+
+    if (numbersString[0] === '-' && i === numbersString.length - 1) {
+      numbersString.shift();
+      numbersString.shift();
+      numbersString.unshift(nArray[0]);
+    }
+  });
+  */
+  const numbers = numbersString.map(noStr => parseDivideSeparatedExpression(noStr)), 
+    initialValue = numbers[0], 
+    result = numbers.slice(1).reduce((acc, no) => acc - no, initialValue);
   return result;
 };
   

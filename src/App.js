@@ -1,6 +1,6 @@
 import { useState } from "react";
 import calcSymbols from './calc-symbols';
-import parsePlusSeparatedExpression from './math-expression-parser';
+// import parsePlusSeparatedExpression from './math-expression-parser';
 import Button from './Button';
 import './foundation.min.css';
 import './style.scss';
@@ -9,7 +9,8 @@ const App = () => {
   const [value, setValue] = useState('');
   const handleSubmit = e => {
     e.preventDefault();
-    const result = parsePlusSeparatedExpression(value.replace(/×/g, '*').replace(/÷/g, '/'), '+');
+    // const result = parsePlusSeparatedExpression(value.replace(/×/g, '*').replace(/÷/g, '/'), '+');
+    const result = eval(value.replace(/×/g, '*').replace(/÷/g, '/'));
     setValue(String(result));
   }
   const updateState = e => setValue(e.target.value);
