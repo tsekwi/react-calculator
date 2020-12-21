@@ -6,23 +6,35 @@ html, body, input {
   margin: 0;
 }
 form {
+  border: .1rem solid #ffffff;
   display: flex;
   flex-direction: column;
   align-items: stretch;
   height: 100vh;
 }
 input[type=text] {
-  border: 0;
+  background-color: rgba(0,204,255,.5);
+  border-color: #ffffff;
+  border-width: .125rem .125rem .12rem .125rem;
+  border-radius: 4px;
+  box-shadow: none;
   flex-grow: 1;
   font-size: 2rem;
   margin: 0;
   min-height: 4.5rem;
   width: 100%;
   &:focus {
-    border: 0;
+    background-color: rgba(0,204,255,.75);
+    border-color: #ffffff;
+    border-width: .125rem .125rem .12rem .125rem;
+    box-shadow: none;
     outline: 0;
   }
+  &::placeholder {
+    color: #ffffff;
+  }
 }
+
 .btn-container {
   flex-grow: 50;
   > div:first-child {
@@ -63,18 +75,21 @@ input[type=text] {
 button.group_1 {
   background-color: #ff7994;
   &:hover {
+    background-color: rgba(255,121,148,.35);
     color: #ff7994;
   }
 }
 button.group_2 {
   background-color: #ffc900;
   &:hover {
+    background-color: rgba(255,201,0,.35);
     color: #ffc900;
   }
 }
 button.group_3 {
   background-color: #00c3af;
   &:hover {
+    background-color: rgba(0,195,175,.35);
     color: #00c3af;
   }
 }

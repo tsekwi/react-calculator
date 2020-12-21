@@ -6,7 +6,7 @@
     outline: 0;
     margin: 0;
     padding: 0.85rem 1rem;
-    border: .5px solid #ffffff;
+    border: .125rem solid #ffffff;
     border-radius: 3px;
     -webkit-transition: background-color 0.25s ease-out, color 0.25s ease-out;
     transition: background-color 0.25s ease-out, color 0.25s ease-out;
@@ -15,9 +15,6 @@
     position: relative;
     cursor: pointer;
 }
-.button:focus {
-    background-color: #ff8b0f;
-}
 .button:hover {
     background-color: #ffffff;
 }
@@ -25,6 +22,7 @@
     background-color: #00e1df;
 }
 .submit:hover {
+    background-color: rgba(0,225,223,.35);
     color: #2ba6cb;
 }
 .button span {
